@@ -17,6 +17,12 @@ type EVCC struct {
 
 var _ ucapi.CemEVCCInterface = (*EVCC)(nil)
 
+// Add support for the EV Commissioning and Configuration (EVCEM) use case
+// as a CEM actor
+//
+// Parameters:
+//   - localEntity: The local entity which should support the use case
+//   - eventCB: The callback to be called when an event is triggered (optional, can be nil)
 func NewEVCC(
 	service api.ServiceInterface,
 	localEntity spineapi.EntityLocalInterface,
