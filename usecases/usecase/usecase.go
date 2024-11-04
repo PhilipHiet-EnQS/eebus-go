@@ -33,6 +33,19 @@ type UseCaseBase struct {
 
 var _ api.UseCaseBaseInterface = (*UseCaseBase)(nil)
 
+// Adds a new use case to an entity
+//
+// Parameters:
+//   - localEntity: The local entity which should support the use case
+//   - usecaseActor: The actor type of the use case
+//   - usecaseName: The name of the use case
+//   - useCaseVersion: The version of the use case
+//   - useCaseDocumentSubVersion: The sub version of the use case document
+//   - useCaseScenarios: The supported scenarios of the use case
+//   - eventCB: The callback to be called when an usecase update event of a remote entity is triggered (optional, can be nil)
+//   - useCaseUpdateEvent: The event type of the use case update event for the eventCB
+//   - validActorTypes: The valid actor types for the use case in a remote entity
+//   - validEntityTypes: The valid entity types for the use case in a remote entity
 func NewUseCaseBase(
 	localEntity spineapi.EntityLocalInterface,
 	usecaseActor model.UseCaseActorType,
